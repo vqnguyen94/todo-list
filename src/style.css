@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+html {
+  font-family: 'Poppins', sans-serif;
+  
+}
+
+h2 {
+  font-size: 2em;
+  /* background: blue; */
+  color: black;
+}
+
+#header {
+  /* background: lightskyblue; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* width: 100vw; */
+  height: 10vh;
+  /* border: solid 1px black; */
+}
+
+#logo {
+  /* background: yellow; */
+  margin-top: 0;
+  margin-left: 1vw;
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  height: 100%;
+}
+
+
+ /* The Modal (background) */
+ .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background: white;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 2em;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#todoForm{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#middle {
+  height: 90vh;
+  /* width: 100vw; */
+  background: white;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: solid 0.15em lightgray;
+}
+
+.project-header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid lightgray 0.2em;
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+.delete-project {
+  opacity: 0.3;
+  color: black;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.5em;
+  position: absolute;
+  right: 1%;
+  transition: opacity 0.2s, color 0.2s; 
+}
+
+.delete-project:hover {
+  opacity: 1;
+  color: red;
+}
+
+.project-card {
+  position: relative;
+  box-shadow: 0.1em 0.1em 0.5em 0 lightgray;
+  border-radius: 1em;
+  background: white;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+  margin: 1em 1em 1em 0;
+  padding: 0 1em 1em 1em;
+  border: solid 0.2em transparent;
+}
+
+.project-card:hover {
+  border: solid 0.2em lightskyblue;
+}
+
+.project-content {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 1em;
+}
+
+#projects {
+  width: 80%;
+  padding-left: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 47%;
+  overflow: auto;
+}
+
+#addProjContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 5%;
+  position: relative;
+}
+
+#addProj {
+  text-align: center;
+  width: 4em;
+  height: 4em;
+  border-radius: 4em;
+  background-color: lightskyblue;
+  color: #fff;
+  transition: width 0.2s;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 2%;
+  right: 10%;
+}
+
+#addProj:active {
+  background-color: rgb(39, 169, 250);
+}
+
+.plus-text {
+  opacity: 1;
+  transition: opacity 0.5s;
+  font-size: 3em;  
+}
+
+/* takes 0 secs for it out of hover to go back to opacity 0 */
+.proj-text {
+  opacity: 0;
+  transition: opacity 0s;
+  position: absolute;
+  width: 100%;
+  font-size:1.3em;
+  cursor: pointer;
+}
+
+#addProj:hover {
+  width: 10em;
+  transition: width 0.2s; 
+}
+
+#addProj:hover .plus-text {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* takes 1 sec for it to reach 1 opacity */
+#addProj:hover .proj-text {
+  opacity: 1;
+  transition: opacity 1s; 
+}
+
+.add-task {
+  width: 2.5em;
+  height: 2.5em;
+  background: white;
+  border: solid 0.2em lightskyblue;
+  border-radius: 2.5em;
+  color: lightskyblue;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  cursor: default;
+  transition-duration: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-plus {
+  opacity: 1;
+  transition: opacity 0.5s;
+  position: absolute;
+  font-size: 2.5em;
+  
+}
+.task-text {
+  opacity: 0;
+  transition: opacity 0s;
+  font-size:1.3em;
+  cursor: pointer;
+}
+
+.add-task:hover {
+  width: 10em;
+}
+
+.add-task:active {
+  background:lightskyblue;
+  color:white;
+}
+
+.add-task:hover .task-plus {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.add-task:hover .task-text {
+  opacity: 1;
+  transition: opacity 0.7s; 
+}
+
+.todo-container {
+  border-bottom: solid 0.05em lightgray;
+}
+
+.todo-container:hover {
+  background: rgb(241, 241, 241);
+}
+
+.high-priority {
+  padding: 0.3em;
+  border-radius: 1em;
+  border: solid 0.2em red;
+}
+
+.low-priority {
+  padding: 0.3em;
+  border-radius: 1em;
+  border: solid 0.2em lime;
+}
+
+.hide-todo-content {
+  display: none;
+  overflow: hidden;
+}
+
+.show-todo-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-btn {
+ height: 20%; 
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-priority {
+  display: flex;
+  justify-content: space-between;
+}
+
+.completed {
+  opacity: 0.2;
+  text-decoration: line-through;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
+#sidebar {
+  background: rgb(241, 241, 241);
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2em;
+  overflow: auto;
+}
+
+#sidebar h2{
+  font-size: 1.5em;
+}
+
+#selectedProjContainer {
+  width: 85%;
+  padding: 3em;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+
+  overflow: auto;
+}
+
+li {
+  list-style-type: none;
+  font-size: 1.2em;
+}
+
+#selectedProjContainer h2 {
+  font-size: 4em;
+}
+
+#selectedProjContainer h3 {
+  font-size: 2em;
+}
+
+#home:hover, .project-links:hover {
+  background: rgb(231, 231, 231);
+}
+
+
+.fade-out{
+  animation-name: fade-out;
+  animation-duration: 0.5s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
